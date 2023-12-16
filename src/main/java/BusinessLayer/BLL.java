@@ -5,7 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.jar.Attributes.Name;
 
-import DataAccessLayer.DataAccess;
+
+import DataAccesLayer.DataAccess;
 import Entities.AppUser;
 import Entities.Folio;
 import Entities.Guest;
@@ -13,11 +14,7 @@ import Entities.Room;
 
 public class BLL {
 
-    DataAccess DAL;
-
-    public BLL() {
-        DAL = new DataAccess();
-    }
+    DataAccess DAL = new DataAccess();
 
     public int AddUser(String userName, String password, String name, String surname) {
         for (var user : GetAllAppUser()) {
@@ -89,8 +86,7 @@ public class BLL {
         if (CheckTcNo(GuestTC) == 1) {
             List<Guest> guestList = GetGuestListByRoom(RoomId);
             for (Guest guest : guestList) {
-                if(guest.getTC().equals(GuestTC))
-                {
+                if (guest.getTC().equals(GuestTC)) {
                     return DAL.RemoveGuestFromRoom(guest, RoomId);
                 }
             }
