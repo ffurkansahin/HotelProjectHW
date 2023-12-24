@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="522.0" prefWidth="505.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ListView layoutX="24.0" layoutY="56.0" prefHeight="298.0" prefWidth="459.0" />
+      <Label layoutX="240.0" layoutY="24.0" text="Folio" />
+      <Label layoutX="24.0" layoutY="419.0" prefHeight="18.0" prefWidth="127.0" text="Total Cost: 0.00" />
+      <Button layoutX="396.0" layoutY="452.0" mnemonicParsing="false" text="Pay All" />
+      <Button layoutX="403.0" layoutY="372.0" mnemonicParsing="false" text="Add" />
+      <TextField layoutX="24.0" layoutY="373.0" prefHeight="26.0" prefWidth="133.0" promptText="Product Name" />
+      <TextField layoutX="167.0" layoutY="372.0" prefHeight="26.0" prefWidth="60.0" promptText="Price" />
+      <Spinner layoutX="240.0" layoutY="373.0" prefHeight="26.0" prefWidth="68.0" />
+      <Button layoutX="191.0" layoutY="452.0" mnemonicParsing="false" text="Pay" />
+      <Label layoutX="313.0" layoutY="376.0" prefHeight="18.0" prefWidth="68.0" text="Cost:" />
+      <TextField layoutX="24.0" layoutY="452.0" promptText="Payment" />
+   </children>
+</AnchorPane>

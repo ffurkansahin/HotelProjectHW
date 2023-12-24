@@ -1,0 +1,18 @@
+/* styles.css */
+
+.activeRoom {
+  -fx-background-color: #00CED1;
+}
+
+.nonActiveRoom {
+  -fx-background-color: lightcoral;
+}
+
+.nonActiveRoom:hover {
+  -fx-background-color: rgb(228, 153, 153);
+}
+
+
+.activeRoom:hover {
+  -fx-background-color: #1ad6f7;
+}
