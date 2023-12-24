@@ -17,7 +17,7 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class RoomController {
+public class RoomController implements Initializable{
     BLL bll = Main.bll;
     @FXML
     private TableView<Guest> table = new TableView<>();
@@ -40,7 +40,7 @@ public class RoomController {
     private Label folioPaymentLabel;
 
     @FXML
-    private TableColumn<Guest, String> id = new TableColumn<>();
+    private TableColumn<Guest, String> id;
 
     @FXML
     private TableColumn<Guest, String> name;
@@ -53,27 +53,23 @@ public class RoomController {
 
     @FXML
     private TableColumn<Guest, String> surname;
+
     private int roomID;
-    ObservableList<Guest> list;
+
     public RoomController(int roomID){
-        this.roomID = roomID;
-        System.out.println(roomID);
-        list = FXCollections.observableArrayList(
-                bll.GetGuestListByRoom(roomID)
-        );
-        blala();
+        this.roomID= roomID;
     }
 
-    public void blala(){
-        id.setCellValueFactory(new PropertyValueFactory<Guest,String>("TC"));
+    
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        ObservableList<Guest> list = FXCollections.observableArrayList(bll.GetGuestListByRoom(roomID));
+        id.setCellValueFactory(new PropertyValueFactory<>("TC"));
+        name.setCellValueFactory(new PropertyValueFactory<>("Name"));
+        surname.setCellValueFactory(new PropertyValueFactory<>("Surname"));
         table.setItems(list);
     }
 
 
-//
-//    @Override
-//    public void initialize(URL url, ResourceBundle resourceBundle) {
-//
-//    }
 }
