@@ -51,9 +51,9 @@
             </HBox>
             <TableView prefHeight="270.0" prefWidth="600.0">
                <columns>
-                  <TableColumn prefWidth="75.0" text="First Name" />
-                  <TableColumn prefWidth="75.0" text="Last Name" />
-                  <TableColumn prefWidth="448.79998779296875" text="Information" />
+                  <TableColumn prefWidth="168.800048828125" text="ID" />
+                  <TableColumn prefWidth="204.79998779296875" text="First Name" />
+                  <TableColumn prefWidth="231.20001220703125" text="Last Name" />
                </columns>
             </TableView>
          </children>
