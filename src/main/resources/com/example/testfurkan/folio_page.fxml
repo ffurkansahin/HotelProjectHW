@@ -7,18 +7,18 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="522.0" prefWidth="505.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.testfurkan.FolioPageController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="522.0" prefWidth="505.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <ListView fx:id="productsListview" layoutX="24.0" layoutY="56.0" prefHeight="298.0" prefWidth="459.0" />
       <Label layoutX="240.0" layoutY="24.0" text="Folio" />
       <Label fx:id="totalCostLabel" layoutX="24.0" layoutY="419.0" prefHeight="18.0" prefWidth="127.0" text="Total Cost: 0.00" />
-      <Button fx:id="payAllButton" layoutX="396.0" layoutY="452.0" mnemonicParsing="false" text="Pay All" />
-      <Button fx:id="addProductToFolioButton" layoutX="403.0" layoutY="372.0" mnemonicParsing="false" text="Add" />
+      <Button fx:id="payAllButton" layoutX="396.0" layoutY="452.0" mnemonicParsing="false" onAction="#payAllFolio" text="Pay All" />
+      <Button fx:id="addProductToFolioButton" layoutX="403.0" layoutY="372.0" mnemonicParsing="false" onAction="#addProductToFolio" text="Add" />
       <TextField fx:id="productNameField" layoutX="24.0" layoutY="373.0" prefHeight="26.0" prefWidth="133.0" promptText="Product Name" />
       <TextField fx:id="priceField" layoutX="167.0" layoutY="372.0" prefHeight="26.0" prefWidth="60.0" promptText="Price" />
-      <Spinner fx:id="productCountSpinner" layoutX="240.0" layoutY="373.0" prefHeight="26.0" prefWidth="68.0" promptText="0" min="0" max="10"/>
-      <Button fx:id="payButton" layoutX="191.0" layoutY="452.0" mnemonicParsing="false" text="Pay" />
+      <Spinner fx:id="productCountSpinner" layoutX="240.0" layoutY="373.0" max="100" min="0" prefHeight="26.0" prefWidth="68.0" promptText="0" />
+      <Button fx:id="payButton" layoutX="191.0" layoutY="452.0" mnemonicParsing="false" onAction="#payFolio" text="Pay" />
       <Label fx:id="costLabel" layoutX="313.0" layoutY="376.0" prefHeight="18.0" prefWidth="68.0" text="Cost:" />
-      <TextField fx:id="folioPayButton" layoutX="24.0" layoutY="452.0" promptText="Payment" />
+      <TextField fx:id="folioPayText" layoutX="24.0" layoutY="452.0" promptText="Payment" />
    </children>
 </AnchorPane>

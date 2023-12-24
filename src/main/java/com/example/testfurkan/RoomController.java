@@ -5,14 +5,20 @@ import Entities.Guest;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -55,21 +61,59 @@ public class RoomController implements Initializable{
     private TableColumn<Guest, String> surname;
 
     private int roomID;
+    List<Guest> listGuest;
 
     public RoomController(int roomID){
         this.roomID= roomID;
+        listGuest = bll.GetGuestListByRoom(roomID);
     }
-
-    
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        roomIDLabel.setText((String.valueOf(roomID)));
+
+        int daysLeftCheck = bll.ControlCheckOutDate(listGuest.get(0).getTC(), roomID);
+        daysLeft.setText((String.valueOf(daysLeftCheck)));
+
+        checkinDate.setText(listGuest.get(0).getCheckIn().toString());
+        checkoutDate.setText(listGuest.get(0).getCheckOut().toString()); 
+
         ObservableList<Guest> list = FXCollections.observableArrayList(bll.GetGuestListByRoom(roomID));
         id.setCellValueFactory(new PropertyValueFactory<>("TC"));
         name.setCellValueFactory(new PropertyValueFactory<>("Name"));
         surname.setCellValueFactory(new PropertyValueFactory<>("Surname"));
         table.setItems(list);
     }
+    public void checkOutButtonClick(){
+        int checkValue = bll.ControlCheckOutDate(listGuest.get(0).getTC(), roomID);
+        int stayedDays = bll.CheckDaysOfGuest(listGuest.get(0).getTC(), roomID);
+        if(checkValue==0)//zamanında çıkış
+        {
+            System.out.println("Hesaplama yapıldı ödenecek miktar : ");
+            System.out.println("Toplam kalınan gün "+ stayedDays);
+        }
+        if(checkValue<0)//zamanından sonra çıkış
+        {
+            System.out.println(Math.abs(checkValue)+" gün fazladan kaldı");
+            System.out.println("Toplam kalınan gün "+ stayedDays);
+        }
+        if(checkValue>0)//zamanından önce çıkışs
+        {
+            System.out.println(checkValue+"gün eksik kaldı");
+            System.out.println("Toplam kalınan gün "+ stayedDays);
+        }
+    }
 
+    public void getFolioButton(ActionEvent event) throws IOException
+    {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("folio_page.fxml"));
+        FolioPageController controller = new FolioPageController(roomID);
+        loader.setController(controller);
+
+        Parent root = loader.load();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
 
 }
