@@ -15,13 +15,8 @@ import java.util.Objects;
 
 public class LoginController {
 
-    static BLL bll = new BLL();
+    BLL bll = Main.bll;
 
-    static {
-        bll.AddUser("test", "123", "test", "test");
-        bll.AddUser("admin", "admin", "admin", "admin");
-        bll.AddUser("asd", "asd", "asd", "asd");
-    }
 
     @FXML
     private Button loginButton = new Button();

@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.testfurkan.DashboardController">
    <children>
       <BorderPane prefHeight="600.0" prefWidth="800.0">
          <top>
@@ -24,7 +24,6 @@
                   <Pane prefHeight="89.0" prefWidth="409.0">
                      <children>
                         <Button alignment="CENTER" contentDisplay="CENTER" layoutX="361.0" layoutY="23.0" mnemonicParsing="false" text="Exit" />
-                        <Label layoutX="39.0" layoutY="27.0" text="UserName :" />
                      </children>
                   </Pane>
                </children>
@@ -47,16 +46,46 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="activeRoom" text="Room 1" />
-                  <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="nonActiveRoom" text="Room 2" GridPane.columnIndex="1" />
-                  <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="activeRoom" text="Room 3" GridPane.columnIndex="2" />
-                  <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="activeRoom" text="Room 4" GridPane.columnIndex="3" />
-                  <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="activeRoom" text="Room 5" GridPane.columnIndex="4" />
-                  <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="activeRoom" text="Room 6" GridPane.rowIndex="1" />
-                  <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="activeRoom" text="Room 7" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="activeRoom" text="Room 8" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                  <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="activeRoom" text="Room 9" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-                  <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="activeRoom" text="Room 10" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                  <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="activeRoom" text="1">
+                     <graphic>
+                        <Label alignment="TOP_LEFT" contentDisplay="TOP" text="Room" />
+                     </graphic></Button>
+                  <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="nonActiveRoom" text="2" GridPane.columnIndex="1">
+                     <graphic>
+                        <Label alignment="TOP_LEFT" contentDisplay="TOP" text="Room" />
+                     </graphic></Button>
+                  <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="activeRoom" text="3" GridPane.columnIndex="2">
+                     <graphic>
+                        <Label text="Room" />
+                     </graphic></Button>
+                  <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="activeRoom" text="4" GridPane.columnIndex="3">
+                     <graphic>
+                        <Label text="Room" />
+                     </graphic></Button>
+                  <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="activeRoom" text="5" GridPane.columnIndex="4">
+                     <graphic>
+                        <Label text="Room" />
+                     </graphic></Button>
+                  <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="activeRoom" text="6" GridPane.rowIndex="1">
+                     <graphic>
+                        <Label text="Room" />
+                     </graphic></Button>
+                  <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="activeRoom" text="7" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <graphic>
+                        <Label text="Room" />
+                     </graphic></Button>
+                  <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="activeRoom" text="8" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                     <graphic>
+                        <Label text="Room" />
+                     </graphic></Button>
+                  <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="activeRoom" text="9" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                     <graphic>
+                        <Label text="Room" />
+                     </graphic></Button>
+                  <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="activeRoom" text="10" GridPane.columnIndex="4" GridPane.rowIndex="1">
+                     <graphic>
+                        <Label text="Room" />
+                     </graphic></Button>
                </children>
             </GridPane>
          </right>

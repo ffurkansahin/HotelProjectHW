@@ -7,7 +7,7 @@ import javafx.scene.control.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class FolioPageController implements Initializable {
+public class FolioPageController {
     @FXML
     public ListView<String> productsListview;
     @FXML
@@ -29,8 +29,7 @@ public class FolioPageController implements Initializable {
     @FXML
     public TextField folioPayButton;
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
 
+    public FolioPageController(int roomID){
     }
 }
