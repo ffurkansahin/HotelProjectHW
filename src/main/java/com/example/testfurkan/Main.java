@@ -13,14 +13,18 @@ import java.util.Objects;
 public class Main extends Application {
     public static BLL bll = new BLL();
     static {
+        
+    }
+    public static void main(String args[]){
         bll.AddUser("admin","admin","admin", "admin");
         for (int i = 1; i <= 10; i++) {
             bll.CreateRoom(i);
 
             bll.AddGuestToRoom("11111111111", "test", "test", LocalDate.now(), LocalDate.of(2023, 12, 30), i);
         }
-
+        launch();
     }
+    
 
     @Override
     public void start(Stage stage) throws Exception {

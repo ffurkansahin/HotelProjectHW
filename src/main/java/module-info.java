@@ -4,5 +4,7 @@ module com.example.testfurkan {
 
 
     opens com.example.testfurkan to javafx.fxml;
+    opens Entities to javafx.fxml;
     exports com.example.testfurkan;
+    exports Entities;
 }
