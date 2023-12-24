@@ -27,6 +27,11 @@ public class Main extends Application {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("login_page.fxml")));
         Scene scene = new Scene(root);
         stage.setScene(scene);
+
+
+        stage.setResizable(false);
+        stage.setTitle("Hotel Management");
+
         stage.show();
     }
 
