@@ -10,21 +10,19 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-import java.io.IOException;
 import java.util.Objects;
 
 public class LoginController {
 
     static BLL bll = new BLL();
 
+
     static {
-        bll.AddUser("test", "123", "test", "test");
-        bll.AddUser("admin", "admin", "admin", "admin");
-        bll.AddUser("asd", "asd", "asd", "asd");
+        bll.AddUser("a", "a", "ahmed", "blal");
     }
 
     @FXML
-    private Button loginButton = new Button();
+    public Button loginButton = new Button();
 
     @FXML
     private PasswordField passwdLabel = new PasswordField();
@@ -32,7 +30,7 @@ public class LoginController {
     @FXML
     private TextField usernameLabel = new TextField();
 
-    public void login() throws IOException {
+    public void login() {
         String username = usernameLabel.getText();
         String passwd = passwdLabel.getText();
         int result = bll.CheckUserForLogin(username, passwd);
@@ -40,15 +38,20 @@ public class LoginController {
             try {
                 Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("user_dashboard.fxml")));
                 Stage stage = (Stage) loginButton.getScene().getWindow();
-                stage.setScene(new Scene(root, 600, 400));
+                stage.setScene(new Scene(root));
             } catch (Exception e) {
-                e.printStackTrace();
+                System.out.println("Something bad happened");
             }
         }
     }
 
+
+    public PasswordField getPasswdLabel() {
+        return passwdLabel;
+    }
+
+    public TextField getUsernameLabel() {
+        return usernameLabel;
+    }
 }
 
-
-//Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Register.fxml")));
-//            Stage stage = (Stage) registerButton.getScene().getWindow();

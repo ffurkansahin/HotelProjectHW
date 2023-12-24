@@ -2,39 +2,31 @@ package com.example.testfurkan;
 
 import BusinessLayer.BLL;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
-import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
 
 import java.net.URL;
-import java.time.LocalDate;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
-public class DashboardController  implements Initializable {
+public class DashboardController implements Initializable {
     static BLL bll = LoginController.bll;
-
-    static {
-        for (int i = 1; i <= 10; i++) {
-            bll.CreateRoom(i);
-            bll.AddGuestToRoom("11111111111", "test", "test", LocalDate.now(), LocalDate.of(2023, 12, 30), i);
-        }
-    }
-
-    @FXML
-    private GridPane gripPane;
 
     @FXML
     private Label room1;
+
+    @FXML
+    private Label room10;
 
     @FXML
     private Label room2;
 
     @FXML
     private Label room3;
-
-    @FXML
-    private Label room4;
 
     @FXML
     private Label room5;
@@ -52,17 +44,24 @@ public class DashboardController  implements Initializable {
     private Label room9;
 
     @FXML
-    private Label room10;
+    private Label room4;
 
     @FXML
-    private Label guestoR1;
-
-//    public void addGuestToLabel() {
-//    }
+    private Label username;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        guestoR1.setText(bll.GetAllRooms().get(0).getGuests().get(0).getName());
 
+    }
+
+    public void mouseClicked() {
+        try {
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("room_detail.fxml")));
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (Exception e) {
+            System.out.println("Something bad happened");
+        }
     }
 }
