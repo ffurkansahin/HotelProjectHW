@@ -58,9 +58,12 @@ public class DashboardController implements Initializable {
         try {
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("room_detail.fxml")));
             Stage stage = new Stage();
-            stage.setScene(new Scene(root));
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
             stage.show();
+
         } catch (Exception e) {
+            System.out.println(e.getMessage());
             System.out.println("Something bad happened");
         }
     }

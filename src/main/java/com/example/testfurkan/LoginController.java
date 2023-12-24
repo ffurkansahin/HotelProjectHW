@@ -18,7 +18,7 @@ public class LoginController {
 
 
     static {
-        bll.AddUser("a", "a", "ahmed", "blal");
+        bll.AddUser("niso", "ahmedo", "ahmed", "blal");
     }
 
     @FXML
