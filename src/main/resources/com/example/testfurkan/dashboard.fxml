@@ -46,43 +46,43 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="activeRoom" text="1">
+                  <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#clickEvent" styleClass="activeRoom" text="1">
                      <graphic>
                         <Label alignment="TOP_LEFT" contentDisplay="TOP" text="Room" />
                      </graphic></Button>
-                  <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="nonActiveRoom" text="2" GridPane.columnIndex="1">
+                  <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#clickEvent" styleClass="nonActiveRoom" text="2" GridPane.columnIndex="1">
                      <graphic>
                         <Label alignment="TOP_LEFT" contentDisplay="TOP" text="Room" />
                      </graphic></Button>
-                  <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="activeRoom" text="3" GridPane.columnIndex="2">
+                  <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#clickEvent" styleClass="activeRoom" text="3" GridPane.columnIndex="2">
                      <graphic>
                         <Label text="Room" />
                      </graphic></Button>
-                  <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="activeRoom" text="4" GridPane.columnIndex="3">
+                  <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#clickEvent" styleClass="activeRoom" text="4" GridPane.columnIndex="3">
                      <graphic>
                         <Label text="Room" />
                      </graphic></Button>
-                  <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="activeRoom" text="5" GridPane.columnIndex="4">
+                  <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#clickEvent" styleClass="activeRoom" text="5" GridPane.columnIndex="4">
                      <graphic>
                         <Label text="Room" />
                      </graphic></Button>
-                  <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="activeRoom" text="6" GridPane.rowIndex="1">
+                  <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#clickEvent" styleClass="activeRoom" text="6" GridPane.rowIndex="1">
                      <graphic>
                         <Label text="Room" />
                      </graphic></Button>
-                  <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="activeRoom" text="7" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#clickEvent" styleClass="activeRoom" text="7" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <graphic>
                         <Label text="Room" />
                      </graphic></Button>
-                  <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="activeRoom" text="8" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                  <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#clickEvent" styleClass="activeRoom" text="8" GridPane.columnIndex="2" GridPane.rowIndex="1">
                      <graphic>
                         <Label text="Room" />
                      </graphic></Button>
-                  <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="activeRoom" text="9" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                  <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#clickEvent" styleClass="activeRoom" text="9" GridPane.columnIndex="3" GridPane.rowIndex="1">
                      <graphic>
                         <Label text="Room" />
                      </graphic></Button>
-                  <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="activeRoom" text="10" GridPane.columnIndex="4" GridPane.rowIndex="1">
+                  <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#clickEvent" styleClass="activeRoom" text="10" GridPane.columnIndex="4" GridPane.rowIndex="1">
                      <graphic>
                         <Label text="Room" />
                      </graphic></Button>

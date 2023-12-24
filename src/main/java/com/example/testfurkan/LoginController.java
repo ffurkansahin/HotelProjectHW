@@ -33,7 +33,7 @@ public class LoginController {
         int result = bll.CheckUserForLogin(username, passwd);
         if (result == 1) {
             try {
-                Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("user_dashboard.fxml")));
+                Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("dashboard.fxml")));
                 Stage stage = (Stage) loginButton.getScene().getWindow();
                 stage.setScene(new Scene(root, 600, 400));
             } catch (Exception e) {
