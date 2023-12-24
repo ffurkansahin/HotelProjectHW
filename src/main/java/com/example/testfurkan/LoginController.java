@@ -15,13 +15,8 @@ import java.util.Objects;
 
 public class LoginController {
 
-    static BLL bll = new BLL();
+    BLL bll = Main.bll;
 
-    static {
-        bll.AddUser("test", "123", "test", "test");
-        bll.AddUser("admin", "admin", "admin", "admin");
-        bll.AddUser("asd", "asd", "asd", "asd");
-    }
 
     @FXML
     private Button loginButton = new Button();
@@ -38,7 +33,7 @@ public class LoginController {
         int result = bll.CheckUserForLogin(username, passwd);
         if (result == 1) {
             try {
-                Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("user_dashboard.fxml")));
+                Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("dashboard.fxml")));
                 Stage stage = (Stage) loginButton.getScene().getWindow();
                 stage.setScene(new Scene(root, 600, 400));
             } catch (Exception e) {

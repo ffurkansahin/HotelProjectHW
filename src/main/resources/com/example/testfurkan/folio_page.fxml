@@ -1,20 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="522.0" prefWidth="505.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="522.0" prefWidth="505.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.testfurkan.FolioPageController">
    <children>
-      <ListView layoutX="24.0" layoutY="56.0" prefHeight="298.0" prefWidth="459.0" />
+      <ListView fx:id="productsListview" layoutX="24.0" layoutY="56.0" prefHeight="298.0" prefWidth="459.0" />
       <Label layoutX="240.0" layoutY="24.0" text="Folio" />
-      <Label layoutX="24.0" layoutY="419.0" prefHeight="18.0" prefWidth="127.0" text="Total Cost: 0.00" />
-      <Button layoutX="396.0" layoutY="452.0" mnemonicParsing="false" text="Pay All" />
-      <Button layoutX="403.0" layoutY="372.0" mnemonicParsing="false" text="Add" />
-      <TextField layoutX="24.0" layoutY="373.0" prefHeight="26.0" prefWidth="133.0" promptText="Product Name" />
-      <TextField layoutX="167.0" layoutY="372.0" prefHeight="26.0" prefWidth="60.0" promptText="Price" />
-      <Spinner layoutX="240.0" layoutY="373.0" prefHeight="26.0" prefWidth="68.0" />
-      <Button layoutX="191.0" layoutY="452.0" mnemonicParsing="false" text="Pay" />
-      <Label layoutX="313.0" layoutY="376.0" prefHeight="18.0" prefWidth="68.0" text="Cost:" />
-      <TextField layoutX="24.0" layoutY="452.0" promptText="Payment" />
+      <Label fx:id="totalCostLabel" layoutX="24.0" layoutY="419.0" prefHeight="18.0" prefWidth="127.0" text="Total Cost: 0.00" />
+      <Button fx:id="payAllButton" layoutX="396.0" layoutY="452.0" mnemonicParsing="false" text="Pay All" />
+      <Button fx:id="addProductToFolioButton" layoutX="403.0" layoutY="372.0" mnemonicParsing="false" text="Add" />
+      <TextField fx:id="productNameField" layoutX="24.0" layoutY="373.0" prefHeight="26.0" prefWidth="133.0" promptText="Product Name" />
+      <TextField fx:id="priceField" layoutX="167.0" layoutY="372.0" prefHeight="26.0" prefWidth="60.0" promptText="Price" />
+      <Spinner fx:id="productCountSpinner" layoutX="240.0" layoutY="373.0" prefHeight="26.0" prefWidth="68.0" promptText="0" min="0" max="10"/>
+      <Button fx:id="payButton" layoutX="191.0" layoutY="452.0" mnemonicParsing="false" text="Pay" />
+      <Label fx:id="costLabel" layoutX="313.0" layoutY="376.0" prefHeight="18.0" prefWidth="68.0" text="Cost:" />
+      <TextField fx:id="folioPayButton" layoutX="24.0" layoutY="452.0" promptText="Payment" />
    </children>
 </AnchorPane>

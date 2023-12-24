@@ -1,26 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
    <top>
-      <HBox prefHeight="26.0" prefWidth="600.0" spacing="20.0" BorderPane.alignment="CENTER">
+      <HBox prefHeight="27.0" prefWidth="584.0" spacing="20.0" BorderPane.alignment="CENTER">
          <children>
             <Label text="Oda:" />
-            <Label text="1" />
+            <Label fx:id="roomIDLabel" text="1" />
             <Label text="Check-in Date:" />
-            <Label text="Date" />
+            <Label fx:id="checkinDate" text="Date" />
             <Label text="Check-out Date:" />
-            <Label text="Date" />
+            <Label fx:id="checkoutDate" text="Date" />
             <Label text="Days left:" />
-            <Label text="(#ofdaysleft)" />
+            <Label fx:id="daysLeft" text="(#ofdaysleft)" />
          </children>
          <padding>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -31,9 +26,9 @@
       <HBox alignment="CENTER" prefHeight="50.0" prefWidth="600.0" spacing="20.0" BorderPane.alignment="CENTER">
          <children>
             <Label text="Total Folio Payment:" />
-            <Label text="0.00" />
-            <Button alignment="CENTER" mnemonicParsing="false" text="Open Folio" />
-            <Button mnemonicParsing="false" text="Check-out" />
+            <Label fx:id="folioPaymentLabel" text="0.00" />
+            <Button fx:id="openFolioButton" alignment="CENTER" mnemonicParsing="false" text="Open Folio" />
+            <Button fx:id="checkOutButton" mnemonicParsing="false" text="Check-out" />
          </children>
       </HBox>
    </bottom>
@@ -42,18 +37,17 @@
          <children>
             <HBox alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="600.0" spacing="20.0">
                <children>
-                  <Button mnemonicParsing="false" text="Add New Guest" />
-                  <Button alignment="CENTER" mnemonicParsing="false" text="Transfer" />
+                  <Button fx:id="addNewGuestButton" mnemonicParsing="false" text="Add New Guest" />
                </children>
                <padding>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
             </HBox>
-            <TableView prefHeight="270.0" prefWidth="600.0">
+            <TableView fx:id="table" prefHeight="270.0" prefWidth="600.0">
                <columns>
-                  <TableColumn prefWidth="75.0" text="First Name" />
-                  <TableColumn prefWidth="75.0" text="Last Name" />
-                  <TableColumn prefWidth="448.79998779296875" text="Information" />
+                  <TableColumn fx:id="id" prefWidth="168.800048828125" text="ID" />
+                  <TableColumn fx:id="name" prefWidth="204.79998779296875" text="First Name" />
+                  <TableColumn fx:id="surname" prefWidth="231.20001220703125" text="Last Name" />
                </columns>
             </TableView>
          </children>
