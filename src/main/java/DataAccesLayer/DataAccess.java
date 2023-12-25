@@ -147,8 +147,10 @@ public class DataAccess {
         Room room = GetRoomByID(roomId);
         Folio roomFolio = room.getFolios();
         HashMap<String, Double> productsMap = roomFolio.getProducts();
-        productsMap.put(productName, price);
-
+        if(productsMap.containsKey(productName))
+            productsMap.put(productName, productsMap.get(productName)+price);
+        else
+            productsMap.put(productName, price);
     }
 
     //Folyoyu getirir
