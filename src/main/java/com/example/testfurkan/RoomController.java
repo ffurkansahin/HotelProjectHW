@@ -103,15 +103,16 @@ public class RoomController implements Initializable {
             double checkValue = bll.ControlCheckOutDate(listGuest.get(0).getTC(), roomID);
 
             if (checkValue == 0) {
-                checkoutAlert.setContentText("Çıkışı onaylıyor musunuz?\nGünce Folio = " + bll.GetRoomByID(roomID).getFolios().getBalance());
+                checkoutAlert.setContentText("Çıkışı onaylıyor musunuz?\nGüncel Folio = " + bll.GetRoomByID(roomID).getFolios().getBalance()
+                +"\nOtel ücreti alındı mı? "+ ((bll.CheckDaysOfGuest(bll.GetGuestListByRoom(roomID).get(0).getTC(), roomID)) + 1) * 100+" $");
                 checker(checkoutAlert);
             }
             if (checkValue < 0) {
-                checkoutAlert.setContentText(Math.abs(checkValue) + " gün fazladan kalındı " + Math.abs(checkValue) * 100 + "$ ekstra ödeme yapıldı mı?");
+                checkoutAlert.setContentText(Math.abs(checkValue) + " gün fazladan kalındı " + Math.abs(checkValue) * 100 +"\nOtel ücreti alındı mı? "+ ((bll.CheckDaysOfGuest(bll.GetGuestListByRoom(roomID).get(0).getTC(), roomID)) + 1) * 100+" $");
                 checker(checkoutAlert);
             }
             if (checkValue > 0) {
-                checkoutAlert.setContentText(checkValue + " gün eksik kaldı\nGünce Folio = " + bll.GetRoomByID(roomID).getFolios().getBalance());
+                checkoutAlert.setContentText(checkValue + " gün eksik kaldı\nGüncel Folio = " + bll.GetRoomByID(roomID).getFolios().getBalance()+"\nOtel ücreti alındı mı? "+ ((bll.CheckDaysOfGuest(bll.GetGuestListByRoom(roomID).get(0).getTC(), roomID)) + 1) * 100+" $");
                 checker(checkoutAlert);
             }
             refreshButtonClick();
