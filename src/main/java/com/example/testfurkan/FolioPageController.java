@@ -56,10 +56,6 @@ public class FolioPageController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         list = FXCollections.observableArrayList();
-        if (!folio.getProducts().containsKey("Hotel Price")) {
-            double price = ((bll.CheckDaysOfGuest(bll.GetGuestListByRoom(roomID).get(0).getTC(), roomID)) + 1) * 100;
-            bll.AddProductToFolio(roomID, "Hotel Price", price);
-        }
         fillListViewWithProducts();
     }
 
