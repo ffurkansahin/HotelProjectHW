@@ -11,9 +11,12 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ContextMenu;
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuItem;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
+import javafx.scene.input.MouseButton;
 
 import java.io.IOException;
 import java.net.URL;
@@ -51,6 +54,27 @@ public class DashboardController implements Initializable {
         stage.show();
     }
 
+    private void addContextMenu(Button button) {
+        ContextMenu contextMenu = new ContextMenu();
+        MenuItem setClean = new MenuItem("Clean");
+
+        setClean.setOnAction(event -> {
+            bll.GetRoomByID(Integer.parseInt(button.getText())).setClean(true);
+            button.getStyleClass().clear();
+            button.getStyleClass().add("activeRoom");
+        });
+
+        contextMenu.getItems().add(setClean);
+
+        // Sağ tıklama olayını dinle
+        button.setOnMouseClicked(event -> {
+            if (event.getButton() == MouseButton.SECONDARY) {
+                // Sağ tıklama yapıldığında menüyü göster
+                contextMenu.show(button, event.getScreenX(), event.getScreenY());
+            }
+        });
+
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -75,27 +99,17 @@ public class DashboardController implements Initializable {
         List<Room> rooms = bll.GetAllRooms();
 
         for (int i = 0; i<10 ; i++){
+            Button button = (Button) myList.get(i);
+            button.getStyleClass().clear();
+            addContextMenu(button);
             if (!rooms.get(i).isEmpty()){
-                Button button = (Button) myList.get(i);
-                button.getStyleClass().clear();
                 button.getStyleClass().add("doluRoom");
             } else if (rooms.get(i).isClean()) {
-                Button button = (Button) myList.get(i);
-                button.getStyleClass().clear();
                 button.getStyleClass().add("activeRoom");
             }else  {
-                Button button = (Button) myList.get(i);
-                button.getStyleClass().clear();
                 button.getStyleClass().add("nonActiveRoom");
             }
         }
-
-        for (Room room : bll.GetAllRooms()) {
-            if(room.isEmpty()==true){
-                availableRoom++;
-            }
-        }
-        availableLabel.setText("Available Room : "+(String.valueOf(availableRoom)));
 
     }
     public void signoutButtonClick() throws IOException{

@@ -1,25 +1,36 @@
-/* styles.css */
 
 .activeRoom {
   -fx-background-color: #00CED1;
+  -fx-content-display: left;
+  -fx-alignment: center;
 }
 
 .nonActiveRoom {
   -fx-background-color: lightcoral;
+  -fx-content-display: left;
+  -fx-alignment: center;
 }
 
 .nonActiveRoom:hover {
   -fx-background-color: rgb(228, 153, 153);
+  -fx-content-display: left;
+  -fx-alignment: center;
 }
 
 .activeRoom:hover {
   -fx-background-color: #1ad6f7;
+  -fx-content-display: left;
+  -fx-alignment: center;
 }
 
 .doluRoom {
   -fx-background-color: #ffa851;
+  -fx-content-display: left;
+  -fx-alignment: center;
 }
 
 .doluRoom:hover {
   -fx-background-color: #ffc28a;
+  -fx-content-display: left;
+  -fx-alignment: center;
 }
