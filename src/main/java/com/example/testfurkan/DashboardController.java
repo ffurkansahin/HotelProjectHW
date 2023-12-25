@@ -59,9 +59,11 @@ public class DashboardController implements Initializable {
         MenuItem setClean = new MenuItem("Clean");
 
         setClean.setOnAction(event -> {
-            bll.GetRoomByID(Integer.parseInt(button.getText())).setClean(true);
-            button.getStyleClass().clear();
-            button.getStyleClass().add("activeRoom");
+            if (!bll.GetRoomByID(Integer.parseInt(button.getText())).isClean()) {
+                bll.GetRoomByID(Integer.parseInt(button.getText())).setClean(true);
+                button.getStyleClass().clear();
+                button.getStyleClass().add("activeRoom");
+            }
         });
 
         contextMenu.getItems().add(setClean);

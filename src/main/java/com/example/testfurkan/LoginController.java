@@ -51,7 +51,3 @@ public class LoginController {
     }
 
 }
-
-
-//Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Register.fxml")));
-//            Stage stage = (Stage) registerButton.getScene().getWindow();
