@@ -20,7 +20,9 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.List;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class RoomController implements Initializable{
@@ -58,7 +60,12 @@ public class RoomController implements Initializable{
     private Label roomIDLabel;
 
     @FXML
+    private Button previousPageButton;
+
+    @FXML
     private TableColumn<Guest, String> surname;
+    @FXML
+    private Button refreshButton;
 
     private int roomID;
     List<Guest> listGuest;
@@ -68,15 +75,23 @@ public class RoomController implements Initializable{
         listGuest = bll.GetGuestListByRoom(roomID);
     }
 
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        folioPaymentLabel.setText(String.valueOf(bll.GetAllFolio(roomID).getBalance()));
+
         roomIDLabel.setText((String.valueOf(roomID)));
-
-        int daysLeftCheck = bll.ControlCheckOutDate(listGuest.get(0).getTC(), roomID);
+        int daysLeftCheck = 0;
+        if(listGuest.size()!=0){
+            daysLeftCheck = bll.ControlCheckOutDate(listGuest.get(0).getTC(), roomID);
+            checkinDate.setText(listGuest.get(0).getCheckIn().toString());
+            checkoutDate.setText(listGuest.get(0).getCheckOut().toString()); 
+        }
+        else{   
+            checkinDate.setText(LocalDate.now().toString());
+            checkoutDate.setText(LocalDate.now().toString());
+        }
         daysLeft.setText((String.valueOf(daysLeftCheck)));
-
-        checkinDate.setText(listGuest.get(0).getCheckIn().toString());
-        checkoutDate.setText(listGuest.get(0).getCheckOut().toString()); 
 
         ObservableList<Guest> list = FXCollections.observableArrayList(bll.GetGuestListByRoom(roomID));
         id.setCellValueFactory(new PropertyValueFactory<>("TC"));
@@ -114,6 +129,37 @@ public class RoomController implements Initializable{
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.show();
+    }
+    public void addNewGuestButtonClick() throws IOException{
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("add_new_guest_page.fxml"));
+        NewGuestPageController controller = new NewGuestPageController(roomID);
+        loader.setController(controller);
+
+        Parent root = loader.load();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
+
+    public void refreshButtonClick(){
+        ObservableList<Guest> list = FXCollections.observableArrayList(bll.GetGuestListByRoom(roomID));
+        id.setCellValueFactory(new PropertyValueFactory<>("TC"));
+        name.setCellValueFactory(new PropertyValueFactory<>("Name"));
+        surname.setCellValueFactory(new PropertyValueFactory<>("Surname"));
+        table.setItems(list);
+
+        int daysLeftCheck = bll.ControlCheckOutDate(listGuest.get(0).getTC(), roomID);
+         daysLeft.setText((String.valueOf(daysLeftCheck)));
+        checkinDate.setText(listGuest.get(0).getCheckIn().toString());
+        checkoutDate.setText(listGuest.get(0).getCheckOut().toString());
+
+        folioPaymentLabel.setText(String.valueOf(bll.GetAllFolio(roomID).getBalance()));
+    }
+
+    public void previousPageButtonClick() throws IOException{
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("dashboard.fxml")));
+            Stage stage = (Stage) previousPageButton.getScene().getWindow();
+            stage.setScene(new Scene(root, 800.0, 600.0));
     }
 
 }

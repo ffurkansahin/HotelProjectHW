@@ -30,6 +30,7 @@
    <bottom>
       <HBox alignment="CENTER" prefHeight="50.0" prefWidth="600.0" spacing="20.0" BorderPane.alignment="CENTER">
          <children>
+            <Button fx:id="previousPageButton" mnemonicParsing="false" onAction="#previousPageButtonClick" prefHeight="25.0" prefWidth="118.0" text="Previous Page" />
             <Label text="Total Folio Payment:" />
             <Label fx:id="folioPaymentLabel" text="0.00" />
             <Button fx:id="openFolioButton" alignment="CENTER" mnemonicParsing="false" onAction="#getFolioButton" text="Open Folio" />
@@ -42,7 +43,8 @@
          <children>
             <HBox alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="600.0" spacing="20.0">
                <children>
-                  <Button fx:id="addNewGuestButton" mnemonicParsing="false" text="Add New Guest" />
+                  <Button fx:id="refreshButton" mnemonicParsing="false" onAction="#refreshButtonClick" prefHeight="25.0" prefWidth="81.0" text="Refresh" />
+                  <Button fx:id="addNewGuestButton" mnemonicParsing="false" onAction="#addNewGuestButtonClick" text="Add New Guest" />
                </children>
                <padding>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />

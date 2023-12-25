@@ -20,9 +20,9 @@ public class Main extends Application {
         for (int i = 1; i <= 10; i++) {
             bll.CreateRoom(i);
 
-            bll.AddGuestToRoom("11111111111", "test", "test", LocalDate.of(2023, 12, 15), LocalDate.of(2023, 12, 22), i);
+            /* bll.AddGuestToRoom("11111111111", "test", "test", LocalDate.of(2023, 12, 21), LocalDate.of(2023, 12, 30), i);
             bll.AddProductToFolio(i, "Pizza", 50);
-            bll.AddProductToFolio(i, "Coca-Cola", 20);
+            bll.AddProductToFolio(i, "Coca-Cola", 20); */
         }
         launch();
     }

@@ -1,6 +1,7 @@
 package com.example.testfurkan;
 
 import BusinessLayer.BLL;
+import Entities.Room;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,8 +19,20 @@ import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 
-public class DashboardController {
+public class DashboardController implements Initializable {
     BLL bll = Main.bll;
+    
+    @FXML
+    private Label availableLabel;
+
+    @FXML
+    private Label dateNowLabel;
+
+    @FXML
+    private Label percentageLabel;
+
+    @FXML 
+    private Button signoutButton;
 
 
     public void clickEvent(ActionEvent event) throws IOException {
@@ -29,9 +42,29 @@ public class DashboardController {
         loader.setController(controller);
 
         Parent root = loader.load();
-        Stage stage = new Stage();
+        Stage stage = (Stage) button.getScene().getWindow();
         stage.setScene(new Scene(root));
         stage.show();
     }
 
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        dateNowLabel.setText(LocalDate.now().toString());
+        int counter =0;
+        for (Room room : bll.GetAllRooms()) {
+            if(!room.getGuests().isEmpty()){
+                counter++;
+            }
+        }
+        percentageLabel.setText("percentage:%"+ counter*10);
+
+    }
+    public void signoutButtonClick() throws IOException{
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("login_page.fxml"));
+        Parent root = loader.load();
+        Stage stage = (Stage) signoutButton.getScene().getWindow();
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
 }
