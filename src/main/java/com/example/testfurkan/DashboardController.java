@@ -2,6 +2,7 @@ package com.example.testfurkan;
 
 import BusinessLayer.BLL;
 import Entities.Room;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,9 +18,12 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class DashboardController implements Initializable {
+    @FXML
+    private GridPane gridpane;
     BLL bll = Main.bll;
     
     @FXML
@@ -59,6 +63,25 @@ public class DashboardController implements Initializable {
         }
         percentageLabel.setText("percentage:%"+ counter*10);
 
+        ObservableList<Node> myList = gridpane.getChildren();
+
+        List<Room> rooms = bll.GetAllRooms();
+
+        for (int i = 0; i<10 ; i++){
+            if (!rooms.get(i).isEmpty()){
+                Button button = (Button) myList.get(i);
+                button.getStyleClass().clear();
+                button.getStyleClass().add("doluRoom");
+            } else if (rooms.get(i).isClean()) {
+                Button button = (Button) myList.get(i);
+                button.getStyleClass().clear();
+                button.getStyleClass().add("activeRoom");
+            }else  {
+                Button button = (Button) myList.get(i);
+                button.getStyleClass().clear();
+                button.getStyleClass().add("nonActiveRoom");
+            }
+        }
     }
     public void signoutButtonClick() throws IOException{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("login_page.fxml"));
