@@ -35,7 +35,6 @@ public class DataAccess {
         return -1;
     }
 
-
     //Tüm odaların listesini getirir
     public List<Room> GetAllRooms() {
         return rooms;
