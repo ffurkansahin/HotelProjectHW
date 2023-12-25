@@ -35,28 +35,6 @@ public class DataAccess {
         return -1;
     }
 
-    //Tüm kullancıların listesini getirir
-    public List<AppUser> GetAllAppUser() {
-        return appUsers;
-    }
-
-    //Kullanıcıyı günceller
-    public int UpdateUser(AppUser updatAppUser,String newPassword) {
-        for (AppUser appUser : GetAllAppUser()) {
-            if (appUser.getUsername().equals(updatAppUser.getUsername())) {//Kullanıcı listesi içinde parametre olarak gelen kullanıcıyı arar
-                if (appUser.getPassword() == updatAppUser.getPassword())//Güncellenecek kullanıcının şifresini kontrol eder
-                {
-                    appUser.setName(updatAppUser.getName());
-                    appUser.setSurname(updatAppUser.getSurname());
-                    appUser.setPassword(newPassword);
-                    return 1;//Başarılı kodunu döndürür
-                } else return -2;//Şifre yanlış hata kodunu döndürür
-
-
-            }
-        }
-        return -1;//Kullanıcı bulunamadı hata kodunu döndürür
-    }
 
     //Tüm odaların listesini getirir
     public List<Room> GetAllRooms() {
