@@ -52,6 +52,7 @@ public class NewGuestPageController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         // Add a listener to the value property of the DatePicker
+        checkoutDatePicker.setDisable(true);
 
         checkinDatePicker.setDayCellFactory(picker -> new DateCell() {
             @Override
@@ -66,6 +67,7 @@ public class NewGuestPageController implements Initializable {
 
         checkinDatePicker.valueProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null) {
+                checkoutDatePicker.setDisable(false);
                 checkoutDatePicker.setDayCellFactory(picker -> new DateCell() {
                     @Override
                     public void updateItem(LocalDate date, boolean empty) {
