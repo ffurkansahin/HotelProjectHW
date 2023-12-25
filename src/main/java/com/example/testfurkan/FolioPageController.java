@@ -47,50 +47,47 @@ public class FolioPageController implements Initializable {
     public boolean isInitialized;
 
 
-    public FolioPageController(int roomID){
-        this.roomID=roomID;
+    public FolioPageController(int roomID) {
+        this.roomID = roomID;
         folio = bll.GetAllFolio(roomID);
-
     }
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-            list = FXCollections.observableArrayList();
-            if(!folio.getProducts().containsKey("Hotel Price")){
-                double price = (bll.CheckDaysOfGuest(bll.GetGuestListByRoom(roomID).get(0).getTC(), roomID)) * 100;
-                bll.AddProductToFolio(roomID, "Hotel Price", price);
-            }
-            fillListViewWithProducts();
+        list = FXCollections.observableArrayList();
+        if (!folio.getProducts().containsKey("Hotel Price")) {
+            double price = ((bll.CheckDaysOfGuest(bll.GetGuestListByRoom(roomID).get(0).getTC(), roomID)) + 1) * 100;
+            bll.AddProductToFolio(roomID, "Hotel Price", price);
+        }
+        fillListViewWithProducts();
     }
 
-    public void payAllFolio()
-    {
+    public void payAllFolio() {
         folio.getProducts().clear();
         folio.setBalance(0);
         totalCostLabel.setText("0");
         productsListview.setItems(null);
         list.clear();
     }
-    public void payFolio(){
+
+    public void payFolio() {
         double totalBalance = folio.getBalance();
-        folio.setBalance(totalBalance-Double.parseDouble(folioPayText.getText()));
-        double newCost = totalBalance - Double.parseDouble(folioPayText.getText());
-        totalCostLabel.setText(String.valueOf(newCost)+"$");
-        list.add("Ödenen miktar ----------->"+folioPayText.getText());
+        double price = -1 * Double.parseDouble(folioPayText.getText());
+        bll.AddProductToFolio(roomID, "Payment", price);
+        fillListViewWithProducts();
     }
-    public void addProductToFolio()
-    {
+
+    public void addProductToFolio() {
         String addProductName = productNameField.getText();
-        Double addProductValue = (Double.parseDouble(priceField.getText())) * productCountSpinner.getValue();
+        double addProductValue = (Double.parseDouble(priceField.getText())) * productCountSpinner.getValue();
         bll.AddProductToFolio(roomID, addProductName, addProductValue);
         fillListViewWithProducts();
-        
     }
-    public void fillListViewWithProducts()
-    {
+
+    public void fillListViewWithProducts() {
         list.clear();
-        HashMap<String,Double> hashMap= folio.getProducts(); 
+        HashMap<String, Double> hashMap = folio.getProducts();
         for (String key : hashMap.keySet()) {
             Double value = hashMap.get(key);
             String row = key + " ------------------> " + value.toString();
@@ -98,6 +95,6 @@ public class FolioPageController implements Initializable {
         }
         productsListview.setItems(list);
         double balance = folio.getBalance();
-        totalCostLabel.setText(String.valueOf(balance)+"$");
+        totalCostLabel.setText(String.valueOf(balance) + "$");
     }
 }
