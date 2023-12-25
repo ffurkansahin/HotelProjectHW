@@ -6,7 +6,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
 import java.util.Objects;
 
 public class Main extends Application {
@@ -17,13 +16,9 @@ public class Main extends Application {
         bll.AddUser("asd", "asd", "asd", "admin");
         for (int i = 1; i <= 10; i++) {
             bll.CreateRoom(i);
-//            bll.AddGuestToRoom("11111111111", "test", "test", LocalDate.of(2023, 12, 15), LocalDate.of(2023, 12, 25), i);
-//            bll.AddProductToFolio(i, "Pizza", 50);
-//            bll.AddProductToFolio(i, "Coca-Cola", 20);
         }
         launch();
     }
-
 
     @Override
     public void start(Stage stage) throws Exception {
@@ -33,6 +28,4 @@ public class Main extends Application {
         stage.setTitle("Hotel Management");
         stage.show();
     }
-
-
 }

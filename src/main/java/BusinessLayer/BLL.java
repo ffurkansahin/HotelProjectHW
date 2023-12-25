@@ -1,9 +1,7 @@
 package BusinessLayer;
 
 import java.time.LocalDate;
-import java.util.HashMap;
 import java.util.List;
-import java.util.jar.Attributes.Name;
 
 import DataAccesLayer.DataAccess;
 import Entities.AppUser;
@@ -63,20 +61,6 @@ public class BLL {
 
     }
 
-    public int RemoveGuestFromRoom(String GuestTC, int RoomId) {
-        if (CheckTcNo(GuestTC) == 1) {
-            List<Guest> guestList = GetGuestListByRoom(RoomId);
-            for (Guest guest : guestList) {
-                if (guest.getTC().equals(GuestTC)) {
-                    return DAL.RemoveGuestFromRoom(guest, RoomId);
-                }
-            }
-
-        }
-        return -1;
-
-    }
-
     public int CheckDaysOfGuest(String GuestTc, int RoomId) {
         if (CheckTcNo(GuestTc) == 1) {
             return DAL.CheckDaysOfGuest(GuestTc, RoomId);
@@ -115,14 +99,6 @@ public class BLL {
 
     public Folio GetAllFolio(int RoomId) {
         return DAL.GetAllFolio(RoomId);
-    }
-
-    public void DeleteProductFromFolio(int roomId, String productName) {
-        Room room = GetRoomByID(roomId);
-        Folio roomFolio = room.getFolios();
-        double balance = roomFolio.getBalance();
-        roomFolio.setBalance(balance - roomFolio.getProducts().get(productName));
-        DAL.DeleteProductFromFolio(roomId, productName);
     }
 
 }

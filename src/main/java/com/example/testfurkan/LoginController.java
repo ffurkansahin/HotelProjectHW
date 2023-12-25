@@ -11,7 +11,6 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-import java.io.IOException;
 import java.util.Objects;
 
 public class LoginController {
@@ -28,7 +27,7 @@ public class LoginController {
     @FXML
     private TextField usernameLabel = new TextField();
 
-    public void login() throws IOException {
+    public void login() {
         String username = usernameLabel.getText();
         String passwd = passwdLabel.getText();
         int result = bll.CheckUserForLogin(username, passwd);
@@ -52,6 +51,3 @@ public class LoginController {
 
 }
 
-
-//Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Register.fxml")));
-//            Stage stage = (Stage) registerButton.getScene().getWindow();

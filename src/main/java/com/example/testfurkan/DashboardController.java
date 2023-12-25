@@ -44,14 +44,16 @@ public class DashboardController implements Initializable {
 
     public void clickEvent(ActionEvent event) throws IOException {
         Button button = (Button) event.getSource();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("room.fxml"));
-        RoomController controller = new RoomController(Integer.parseInt(button.getText()));
-        loader.setController(controller);
+        if (!button.getStyleClass().contains("nonActiveRoom")) {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("room.fxml"));
+            RoomController controller = new RoomController(Integer.parseInt(button.getText()));
+            loader.setController(controller);
 
-        Parent root = loader.load();
-        Stage stage = (Stage) button.getScene().getWindow();
-        stage.setScene(new Scene(root));
-        stage.show();
+            Parent root = loader.load();
+            Stage stage = (Stage) button.getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.show();
+        }
     }
 
     private void addContextMenu(Button button) {
@@ -90,11 +92,11 @@ public class DashboardController implements Initializable {
         percentageLabel.setText("percentage:%"+ counter*10);
         int availableRoom = 0;
         for (Room room : bll.GetAllRooms()) {
-            if(room.isEmpty()==true){
+            if(room.isEmpty()){
                 availableRoom++;
             }
         }
-        availableLabel.setText("Available Room : "+(String.valueOf(availableRoom)));
+        availableLabel.setText("Available Room : "+(availableRoom));
 
         ObservableList<Node> myList = gridpane.getChildren();
 

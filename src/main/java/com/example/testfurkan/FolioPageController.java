@@ -22,19 +22,11 @@ public class FolioPageController implements Initializable {
     @FXML
     public Label totalCostLabel;
     @FXML
-    public Button payAllButton;
-    @FXML
-    public Button addProductToFolioButton;
-    @FXML
     public TextField productNameField;
     @FXML
     public TextField priceField;
     @FXML
     public Spinner<Integer> productCountSpinner;
-    @FXML
-    public Label costLabel;
-    @FXML
-    public Button payButton;
     @FXML
     public TextField folioPayText;
 
@@ -44,14 +36,10 @@ public class FolioPageController implements Initializable {
 
     ObservableList<String> list;
 
-    public boolean isInitialized;
-
-
     public FolioPageController(int roomID) {
         this.roomID = roomID;
         folio = bll.GetAllFolio(roomID);
     }
-
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
