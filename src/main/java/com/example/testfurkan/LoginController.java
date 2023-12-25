@@ -36,7 +36,9 @@ public class LoginController {
             try {
                 Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("dashboard.fxml")));
                 Stage stage = (Stage) loginButton.getScene().getWindow();
-                stage.setScene(new Scene(root));
+                Scene scene = new Scene(root);
+                scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("dashboard.css")).toExternalForm());
+                stage.setScene(scene);
             } catch (Exception e) {
                 e.printStackTrace();
             }
