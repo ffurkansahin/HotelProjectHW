@@ -37,6 +37,8 @@ public class NewGuestPageController {
 
     public void addNewGuestButtonClick(){
         bll.AddGuestToRoom(tcField.getText(),nameField.getText(),surnameField.getText(),checkinDatePicker.getValue(),checkoutDatePicker.getValue(),roomId);
+        bll.GetAllRooms().get(roomId-1).setEmpty(false);
+        bll.GetAllRooms().get(roomId-1).setClean(false);
         Stage stage = (Stage) addNewGuestButton.getScene().getWindow();
         stage.close();
     }

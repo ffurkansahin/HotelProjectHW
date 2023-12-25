@@ -82,6 +82,14 @@ public class DashboardController implements Initializable {
                 button.getStyleClass().add("nonActiveRoom");
             }
         }
+        int availableRoom = 0;
+        for (Room room : bll.GetAllRooms()) {
+            if(room.isEmpty()==true){
+                availableRoom++;
+            }
+        }
+        availableLabel.setText("Available Room : "+(String.valueOf(availableRoom)));
+
     }
     public void signoutButtonClick() throws IOException{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("login_page.fxml"));

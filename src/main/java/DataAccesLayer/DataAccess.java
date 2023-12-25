@@ -84,6 +84,8 @@ public class DataAccess {
     //Odaya misafir ekler(CheckIn)
     public int AddGuestToRoom(Guest guestAdd, int roomId) {
         Room room = GetRoomByID(roomId);
+        room.setEmpty(false);
+        room.setClean(false);
 
         List<Guest> listRoomGuest = room.getGuests();
 
