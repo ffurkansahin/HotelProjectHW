@@ -17,11 +17,7 @@ public class BLL {
     DataAccess DAL = new DataAccess();
 
     public int AddUser(String userName, String password, String name, String surname) {
-        for (var user : GetAllAppUser()) {
-            if (user.getUsername().equals(userName)) {
-                return -1;//Kullanıcı zaten önceden eklenmiş
-            }
-        }
+        
         AppUser newAppUser = new AppUser();
         newAppUser.setUsername(userName);
         newAppUser.setName(name);
@@ -37,19 +33,6 @@ public class BLL {
         checkAppUser.setPassword(password);
         return DAL.CheckUserForLogin(checkAppUser);
 
-    }
-
-    public List<AppUser> GetAllAppUser() {
-        return DAL.GetAllAppUser();
-    }
-
-    public int UpdateUser(String userName, String password, String newPassword, String name, String surname) {
-        AppUser updatAppUser = new AppUser();
-        updatAppUser.setName(name);
-        updatAppUser.setSurname(surname);
-        updatAppUser.setUsername(userName);
-        updatAppUser.setPassword(password);
-        return DAL.UpdateUser(updatAppUser, newPassword);
     }
 
     public List<Room> GetAllRooms() {
