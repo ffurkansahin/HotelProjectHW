@@ -12,12 +12,10 @@ import Entities.Guest;
 import Entities.Room;
 
 public class BLL {
-
-    int currentRoom;
     DataAccess DAL = new DataAccess();
 
     public int AddUser(String userName, String password, String name, String surname) {
-        
+
         AppUser newAppUser = new AppUser();
         newAppUser.setUsername(userName);
         newAppUser.setName(name);
