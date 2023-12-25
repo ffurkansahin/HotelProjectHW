@@ -16,6 +16,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
+import javafx.scene.input.MouseButton;
 
 import java.io.IOException;
 import java.net.URL;
@@ -53,23 +54,32 @@ public class DashboardController implements Initializable {
         stage.show();
     }
 
+    private void addContextMenu(Button button) {
+        ContextMenu contextMenu = new ContextMenu();
+        MenuItem setClean = new MenuItem("Clean");
+
+        setClean.setOnAction(event -> {
+            bll.GetRoomByID(Integer.parseInt(button.getText())).setClean(true);
+            button.getStyleClass().clear();
+            button.getStyleClass().add("activeRoom");
+        });
+
+        contextMenu.getItems().add(setClean);
+
+        // Sağ tıklama olayını dinle
+        button.setOnMouseClicked(event -> {
+            if (event.getButton() == MouseButton.SECONDARY) {
+                // Sağ tıklama yapıldığında menüyü göster
+                contextMenu.show(button, event.getScreenX(), event.getScreenY());
+            }
+        });
+
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        // Sağ tık menüsü oluştur
-        ContextMenu contextMenu = new ContextMenu();
-        MenuItem cleanItem = new MenuItem("Clean Room");
 
-        // MenuItem'lari ContextMenu'ya ekle
-        contextMenu.getItems().addAll(cleanItem);
 
-        cleanItem.setOnAction(e -> {
-            // "Cut" seçeneği için yapılacak işlemleri buraya ekleyin
-            Button button = (Button) e.getSource();
-            int bId = Integer.parseInt(button.getText());
-            List<Room> rooms = bll.GetAllRooms();
-            rooms.get(bId).setClean(true);
-            System.out.println(rooms.get(bId).isClean());
-        });
 
         dateNowLabel.setText(LocalDate.now().toString());
         int counter =0;
@@ -94,7 +104,7 @@ public class DashboardController implements Initializable {
         for (int i = 0; i<10 ; i++){
             Button button = (Button) myList.get(i);
             button.getStyleClass().clear();
-            button.setContextMenu(contextMenu);
+            addContextMenu(button);
             if (!rooms.get(i).isEmpty()){
                 button.getStyleClass().add("doluRoom");
             } else if (rooms.get(i).isClean()) {
