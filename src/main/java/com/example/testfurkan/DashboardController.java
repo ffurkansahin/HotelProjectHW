@@ -78,9 +78,6 @@ public class DashboardController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
-
-
         dateNowLabel.setText(LocalDate.now().toString());
         int counter =0;
         for (Room room : bll.GetAllRooms()) {
