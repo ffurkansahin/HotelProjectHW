@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import java.util.Objects;
 
+//yorum
 public class Main extends Application {
     public static BLL bll = new BLL();
 
