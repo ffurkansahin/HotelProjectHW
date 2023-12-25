@@ -6,7 +6,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
 import java.util.Objects;
 
 public class Main extends Application {
@@ -21,7 +20,6 @@ public class Main extends Application {
         launch();
     }
 
-
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("login_page.fxml")));
@@ -30,6 +28,4 @@ public class Main extends Application {
         stage.setTitle("Hotel Management");
         stage.show();
     }
-
-
 }

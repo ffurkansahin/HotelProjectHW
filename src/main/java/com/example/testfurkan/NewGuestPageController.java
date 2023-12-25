@@ -2,12 +2,18 @@ package com.example.testfurkan;
 
 import BusinessLayer.BLL;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.DateCell;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-public class NewGuestPageController {
+import java.net.URL;
+import java.time.LocalDate;
+import java.util.ResourceBundle;
+
+public class NewGuestPageController implements Initializable {
     BLL bll = Main.bll;
     @FXML
     private Button addNewGuestButton;
@@ -42,5 +48,33 @@ public class NewGuestPageController {
         Stage stage = (Stage) addNewGuestButton.getScene().getWindow();
         stage.close();
     }
-    
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        // Add a listener to the value property of the DatePicker
+
+        checkinDatePicker.setDayCellFactory(picker -> new DateCell() {
+            @Override
+            public void updateItem(LocalDate date, boolean empty) {
+                super.updateItem(date, empty);
+
+                LocalDate today = LocalDate.now();
+
+                setDisable(date.isAfter(today));
+            }
+        });
+
+        checkinDatePicker.valueProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue != null) {
+                checkoutDatePicker.setDayCellFactory(picker -> new DateCell() {
+                    @Override
+                    public void updateItem(LocalDate date, boolean empty) {
+                        super.updateItem(date, empty);
+
+                        setDisable(date.isBefore(newValue));
+                    }
+                });
+            }
+        });
+    }
 }
