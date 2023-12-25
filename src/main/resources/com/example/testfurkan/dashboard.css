@@ -12,7 +12,14 @@
   -fx-background-color: rgb(228, 153, 153);
 }
 
-
 .activeRoom:hover {
   -fx-background-color: #1ad6f7;
+}
+
+.doluRoom {
+  -fx-background-color: #e33a11;
+}
+
+.doluRoom:hover {
+  -fx-background-color: #f3613d;
 }
