@@ -14,6 +14,7 @@ import Entities.Room;
 
 public class BLL {
 
+    int currentRoom;
     DataAccess DAL = new DataAccess();
 
     public int AddUser(String userName, String password, String name, String surname) {
