@@ -69,7 +69,7 @@ public class DataAccess {
 
         boolean checkResult = listRoomGuest.add(guestAdd);
 
-        if (checkResult == true) {
+        if (checkResult) {
             return 1;
         } else {
             return -1;

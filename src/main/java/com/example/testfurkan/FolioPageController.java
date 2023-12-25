@@ -51,22 +51,26 @@ public class FolioPageController implements Initializable {
     public void payAllFolio() {
         folio.getProducts().clear();
         folio.setBalance(0);
-        totalCostLabel.setText("0");
+        totalCostLabel.setText("0.0$");
         productsListview.setItems(null);
         list.clear();
     }
 
     public void payFolio() {
         double totalBalance = folio.getBalance();
-        double price = -1 * Double.parseDouble(folioPayText.getText());
-        bll.AddProductToFolio(roomID, "Payment", price);
+        if (!folioPayText.getText().isEmpty()) {
+            double price = -1 * Double.parseDouble(folioPayText.getText());
+            bll.AddProductToFolio(roomID, "Payment", price);
+        }
         fillListViewWithProducts();
     }
 
     public void addProductToFolio() {
         String addProductName = productNameField.getText();
-        double addProductValue = (Double.parseDouble(priceField.getText())) * productCountSpinner.getValue();
-        bll.AddProductToFolio(roomID, addProductName, addProductValue);
+        if (!priceField.getText().isEmpty()) {
+            double addProductValue = (Double.parseDouble(priceField.getText())) * productCountSpinner.getValue();
+            bll.AddProductToFolio(roomID, addProductName, addProductValue);
+        }
         fillListViewWithProducts();
     }
 

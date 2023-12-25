@@ -45,21 +45,33 @@ public class BLL {
         return DAL.GetRoomByID(id);
     }
 
-    public int AddGuestToRoom(String TC, String Name, String Surname, LocalDate CheckIn, LocalDate CheckOut, int RoomId) {
+    public int AddGuestToRoom(String TC, String Name, String Surname, LocalDate CheckIn, LocalDate checkOut, int RoomId) {
         Guest newGuest = new Guest();
         if (CheckTcNo(TC) == 1) {
             newGuest.setTC(TC);
             newGuest.setName(Name);
             newGuest.setSurname(Surname);
             newGuest.setCheckIn(CheckIn);
-            newGuest.setCheckOut(CheckOut);
-
+            newGuest.setCheckOut(checkOut);
             DAL.AddGuestToRoom(newGuest, RoomId);
             return 1;
         }
         return -1;
 
     }
+//    public int AddGuestToRoom(LocalDate CheckOut) {
+//        Guest newGuest = new Guest();
+//        if (CheckTcNo(TC) == 1) {
+//            newGuest.setTC(TC);
+//            newGuest.setName(Name);
+//            newGuest.setSurname(Surname);
+//            newGuest.setCheckIn(CheckIn);
+//            DAL.AddGuestToRoom(newGuest, RoomId);
+//            return 1;
+//        }
+//        return -1;
+//
+//    }
 
     public int CheckDaysOfGuest(String GuestTc, int RoomId) {
         if (CheckTcNo(GuestTc) == 1) {
