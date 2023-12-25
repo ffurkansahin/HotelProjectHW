@@ -176,7 +176,9 @@ public class RoomController implements Initializable {
     public void previousPageButtonClick() throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("dashboard.fxml")));
         Stage stage = (Stage) previousPageButton.getScene().getWindow();
-        stage.setScene(new Scene(root, 800.0, 600.0));
+        Scene scene = new Scene(root);
+        scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("dashboard.css")).toExternalForm());
+        stage.setScene(scene);
     }
 
 }
