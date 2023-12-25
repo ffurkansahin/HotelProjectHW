@@ -62,6 +62,13 @@ public class DashboardController implements Initializable {
             }
         }
         percentageLabel.setText("percentage:%"+ counter*10);
+        int availableRoom = 0;
+        for (Room room : bll.GetAllRooms()) {
+            if(room.isEmpty()==true){
+                availableRoom++;
+            }
+        }
+        availableLabel.setText("Available Room : "+(String.valueOf(availableRoom)));
 
         ObservableList<Node> myList = gridpane.getChildren();
 
