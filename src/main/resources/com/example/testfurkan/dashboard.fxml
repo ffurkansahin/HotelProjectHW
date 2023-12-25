@@ -8,24 +8,17 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.testfurkan.DashboardController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.testfurkan.DashboardController">
    <children>
       <BorderPane prefHeight="600.0" prefWidth="800.0">
          <top>
             <HBox alignment="CENTER_LEFT" prefHeight="80.0" prefWidth="800.0" spacing="20.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button mnemonicParsing="false" text="Sign-out" />
-                  <Label alignment="CENTER" text="Percentage: %0" />
-                  <Label text="Available: 10" />
-                  <Button mnemonicParsing="false" text="New Check-In" />
-                  <Pane prefHeight="89.0" prefWidth="409.0">
-                     <children>
-                        <Button alignment="CENTER" contentDisplay="CENTER" layoutX="361.0" layoutY="23.0" mnemonicParsing="false" text="Exit" />
-                     </children>
-                  </Pane>
+                  <Button fx:id="signoutButton" mnemonicParsing="false" onAction="#signoutButtonClick" text="Sign-out" />
+                  <Label fx:id="percentageLabel" alignment="CENTER" prefHeight="17.0" prefWidth="151.0" text="Percentage: %0" />
+                  <Label fx:id="availableLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="178.0" text="Available: 10" />
                </children>
                <padding>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -92,7 +85,7 @@
          <bottom>
             <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="800.0" BorderPane.alignment="CENTER">
                <children>
-                  <Label text="Date.now()" />
+                  <Label fx:id="dateNowLabel" text="Date.now()" />
                </children>
                <padding>
                   <Insets left="30.0" />
