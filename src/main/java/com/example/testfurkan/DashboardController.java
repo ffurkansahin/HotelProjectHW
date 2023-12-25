@@ -89,7 +89,7 @@ public class DashboardController implements Initializable {
                 button.getStyleClass().add("nonActiveRoom");
             }
         }
-        int availableRoom = 0;
+
         for (Room room : bll.GetAllRooms()) {
             if(room.isEmpty()==true){
                 availableRoom++;

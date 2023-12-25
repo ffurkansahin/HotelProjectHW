@@ -17,9 +17,9 @@
 }
 
 .doluRoom {
-  -fx-background-color: #e33a11;
+  -fx-background-color: #ffa851;
 }
 
 .doluRoom:hover {
-  -fx-background-color: #f3613d;
+  -fx-background-color: #ffc28a;
 }
